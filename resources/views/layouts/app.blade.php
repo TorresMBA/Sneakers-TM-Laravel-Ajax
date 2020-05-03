@@ -78,9 +78,13 @@
             @yield('content')
         </main>
     </div> --}}
-    <main class="py-4">
-        @yield('content')
-    </main>
+    
+    <!-- /Contenido Principal-->
+ 
+    @yield('content')
+
+    <!-- //Contenido Principal -->
+
     @include('layouts.partials.footer')
     <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
     @include('layouts.partials.js')

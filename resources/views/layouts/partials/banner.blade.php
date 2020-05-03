@@ -3,7 +3,7 @@
 		<div class="wrapper_top_w3layouts">
 			<div class="header_agileits">
 				<div class="logo inner_page_log">
-					<h1><a class="navbar-brand" href="index.html"><span>Downy</span> <i>Shoes</i></a></h1>
+					<h1><a class="navbar-brand" href="index.html"><span>Sneakers</span> <i>TM</i></a></h1>
 				</div>
 				<div class="overlay overlay-contentpush">
 					<button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
@@ -55,8 +55,8 @@
 			<div class="inner_breadcrumb_agileits_w3">
 
 				<ul class="short">
-					<li><a href="index.html">Home</a><i>|</i></li>
-					<li>Shop</li>
+					<li><a href="{{ route('inicio') }}">Home</a><i>|</i></li>
+					<li>@yield('ruta')</li>
 				</ul>
 			</div>
 		</div>

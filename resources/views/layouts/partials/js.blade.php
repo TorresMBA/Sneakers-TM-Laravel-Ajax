@@ -1,13 +1,13 @@
 <!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="{{ asset("assests/$theme/js/jquery-2.1.4.min.js") }}"></script>
 <!-- //js -->
 <!-- /nav -->
-<script src="js/modernizr-2.6.2.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/demo1.js"></script>
+<script src="{{ asset("assests/$theme/js/modernizr-2.6.2.min.js") }}"></script>
+<script src="{{ asset("assests/$theme/js/classie.js") }}"></script>
+<script src="{{ asset("assests/$theme/js/demo1.js") }}"></script>
 <!-- //nav -->
 <!-- cart-js -->
-<script src="js/minicart.js"></script>
+<script src="{{ asset("assests/$theme/js/minicart.js") }}"></script>
 <script>
     shoe.render();
 
@@ -23,9 +23,9 @@
 </script>
 <!-- //cart-js -->
 <!--search-bar-->
-<script src="js/search.js"></script>
+<script src="{{ asset("assests/$theme/js/search.js") }}"></script>
 <!--//search-bar-->
-<script src="js/responsiveslides.min.js"></script>
+<script src="{{ asset("assests/$theme/js/responsiveslides.min.js") }}"></script>
 <script>
     $(function () {
         $("#slider4").responsiveSlides({
@@ -45,8 +45,8 @@
 </script>
 <!-- js for portfolio lightbox -->
 <!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="{{ asset("assests/$theme/js/move-top.js") }}"></script>
+<script type="text/javascript" src="{{ asset("assests/$theme/js/easing.js") }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -59,4 +59,4 @@
 </script>
 <!-- //end-smoth-scrolling -->
 
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" src="{{ asset("assests/$theme/js/bootstrap-3.1.1.min.js") }}"></script>
