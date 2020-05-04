@@ -10,7 +10,7 @@
 					<nav>
 						<ul>
 							<li><a href="index.html" class="active">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="{{ route('nosotros') }}"> Nosotros</a></li>
 							<li><a href="404.html">Team</a></li>
 							<li><a href="{{ route('calzado.lista') }}">Calzados a la Venta !!</a></li>
 							<li><a href="contact.html">Contact</a></li>
@@ -55,8 +55,8 @@
 			<div class="inner_breadcrumb_agileits_w3">
 
 				<ul class="short">
-					<li><a href="{{ route('inicio') }}">Home</a><i>|</i></li>
-					<li>@yield('ruta')</li>
+					<li><a href="{{ route('inicio') }}" title="Inicio">Inicio</a><i>|</i></li>
+					<li>@yield('ruta')<i></i></li>
 				</ul>
 			</div>
 		</div>

@@ -80,9 +80,7 @@
     </div> --}}
     
     <!-- /Contenido Principal-->
- 
     @yield('content')
-
     <!-- //Contenido Principal -->
 
     @include('layouts.partials.footer')

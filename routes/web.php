@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 
 Route::get('/calzados', 'CalzadoController@index')->name('calzado.lista');
+Route::get('/calzados/adidas', 'CalzadoController@show')->name('calzado.mostrar');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 //Route::get('/admin/permiso', 'Admin\PermisoController@index')->name('permiso.index'); //Para cachear la ruta 
+//Admin
 Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     Route::get('permiso', 'PermisoController@index')->name('permiso.index');
     Route::get('permiso/crear', 'PermisoController@create')->name('permiso.crear');
@@ -30,3 +30,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     Route::get('menu/crear', 'MenuController@create')->name('menu.create');
     Route::post('menu', 'MenuController@store')->name('menu.store');
 });
+
+//Vistas
+Route::view('/nosotros', 'contacto.nosotros')->name('nosotros');
+Route::view('/404', '404.404')->name('error.page');
