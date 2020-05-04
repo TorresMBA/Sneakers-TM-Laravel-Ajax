@@ -13,7 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	</script>
 	<link rel="stylesheet" type="text/css" href="{{ asset("assests/$theme/css/checkout.css") }}">
-	{{-- <link rel="stylesheet" type="text/css" href="{{ asset("assests/$theme/css/contact.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset("assests/$theme/css/contact.css") }}">{{-- contact para letra roja en menu crear, general crear
 	<link rel="stylesheet" href="{{ asset("assests/$theme/css/about.css") }}" type="text/css" media="screen" property="" /> --}}
 	<link href="{{ asset("assests/$theme/css/bootstrap.css") }}" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="{{ asset("assests/$theme/css/shop.css") }}" type="text/css" media="screen" property="" /> 

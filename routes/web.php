@@ -26,4 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     Route::get('permiso', 'PermisoController@index')->name('permiso.index');
     Route::get('permiso/crear', 'PermisoController@create')->name('permiso.crear');
+    Route::get('menu', 'MenuController@index')->name('menu.index');
+    Route::get('menu/crear', 'MenuController@create')->name('menu.create');
+    Route::post('menu', 'MenuController@store')->name('menu.store');
 });

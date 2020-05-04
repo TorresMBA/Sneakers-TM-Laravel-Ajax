@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidacionMenu;
+use App\Models\Admin\Menu;
 
 class MenuController extends Controller
 {
@@ -24,7 +26,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.menu.create');
     }
 
     /**
@@ -33,9 +35,10 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidacionMenu $request)
     {
-        //
+        Menu::create($request->all());
+        return redirect('admin/menu/crear')->with('mensaje', 'Menu creado con exito'); //Cuando redirecion con un with la variable de adentro se manda en una sesion momentanea  admin/menu/crear
     }
 
     /**
