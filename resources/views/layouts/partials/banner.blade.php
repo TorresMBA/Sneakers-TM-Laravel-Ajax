@@ -9,11 +9,11 @@
 					<button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
 					<nav>
 						<ul>
-							<li><a href="index.html" class="active">Home</a></li>
+							<li><a href="{{ route('inicio') }}" class="active">Inicio</a></li>
 							<li><a href="{{ route('nosotros') }}"> Nosotros</a></li>
-							<li><a href="404.html">Team</a></li>
+							<li><a href="{{ route('error.page') }}">Equipo</a></li>
 							<li><a href="{{ route('calzado.lista') }}">Calzados a la Venta !!</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="{{ route('contacto') }}">Contacto</a></li>
 						</ul>
 					</nav>
 				</div>

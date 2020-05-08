@@ -17,11 +17,11 @@
 					<button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
 					<nav>
 						<ul>
-							<li><a href="{{ route('inicio') }}" class="active">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="404.html">Team</a></li>
-							<li><a href="{{ route('calzado.lista') }}">Calzados</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="{{ route('inicio') }}" class="active">Inicio</a></li>
+							<li><a href="{{ route('nosotros') }}"> Nosotros</a></li>
+							<li><a href="{{ route('error.page') }}">Equipo</a></li>
+							<li><a href="{{ route('calzado.lista') }}">Calzados a la Venta !!</a></li>
+							<li><a href="{{ route('contacto') }}">Contacto</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -33,6 +33,7 @@
 				<div class="top_nav_right">
 					<div class="shoecart shoecart2 cart cart box_1">
 						<form action="#" method="post" class="last">
+							@csrf
 							<input type="hidden" name="cmd" value="_cart">
 							<input type="hidden" name="display" value="1">
 							<button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
@@ -43,20 +44,19 @@
 
 				<!-- search -->
 				<div class="search_w3ls_agileinfo">
-					<div class="cd-main-header">
+					{{-- <div class="cd-main-header">
 						<!-- login -->
 						<a href="login.html" class="btn btn-success cd-header-buttons">
 							<span class="fa fa-sign-in mr-2"></span>Login</a>
 						<!-- //login -->
-					</div>
-						
+					</div> --}}						
 					<div class="cd-main-header">
 						<ul class="cd-header-buttons">
 							<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
 						</ul>
 					</div>
 					<div id="cd-search" class="cd-search">
-						<form action="#" method="post">
+						<form action="" method="post">
 							<input name="Search" type="search" placeholder="Click enter after typing...">
 						</form>
 					</div>
@@ -199,7 +199,7 @@
 	<!-- //grids_bottom2-->
 
 	@include('layouts.partials.footer')
-    <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	
 	@include('layouts.partials.js')
 </body>
 </html>
