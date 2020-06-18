@@ -19,14 +19,14 @@ var Bibloteca = function (){
                     label.closest('.form-control').removeClass('has-error');
                 },
                 errorPlacement: function(error, element){
-                    if ($(element).is('select') && element.hasClass('bs-select')) {//PARA LOS SELECT BOOSTRAP
-                        error.insertAfter(element);//element.next().after(error);
+                    if ($(element).is('select') && element.hasClass('bs-select')) {
+                        error.insertAfter(element);
                     } else if ($(element).is('select') && element.hasClass('select2-hidden-accessible')) {
                         element.next().after(error);
                     } else if (element.attr("data-error-container")) {
                         error.appendTo(element.attr("data-error-container"));
                     } else {
-                        error.insertAfter(element); // default placement for everything else
+                        error.insertAfter(element);
                     }
                 },
                 invalidHandler: function(event, validator){

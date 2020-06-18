@@ -8,10 +8,14 @@
 
 //Route::get('/', 'HomeController@index')->name('inicio');
 
-Auth::routes();
+//Ruta Login
+Route::get('auth/login', 'Seguridad\LoginController@index')->name('login');
+Route::post('auth/login', 'Seguridad\LoginController@login')->name('login.inicio');
 
-//Admin
-Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () { // Con un callback dentro de la ruta no sirve Para cachear la ruta
+//Rutas para el acceso de Admin
+Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth'], function () { // Con un callback dentro de la ruta no sirve Para cachear la ruta
+    //Inicio de Logueo
+    Route::get('', 'AdminController@index')->name('');
     //Rutas Permiso
     Route::get('permiso', 'PermisoController@index')->name('permiso.index');
     Route::get('permiso/crear', 'PermisoController@create')->name('permiso.crear');
@@ -27,18 +31,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () { // Con
     Route::get('rol/{id}/editar', 'RolController@edit')->name('rol.edit');
     Route::put('rol/{id}', 'RolController@update')->name('rol.update');//Que es para actulizar
     Route::delete('rol/{id}','RolController@destroy')->name('rol.delete');
+    //Menu-Rol
+    Route::get('menu-rol', 'MenuRolController@index')->name('menu-rol.index');
 });
-
 
 //Calzados
 Route::get('/calzados', 'CalzadoController@index')->name('calzado.lista');
 Route::get('/calzados/adidas', 'CalzadoController@show')->name('calzado.mostrar');
 
-
 //Vistas
 Route::view('/nosotros', 'contacto.nosotros')->name('nosotros');
 Route::view('/contacto', 'contacto.contacto')->name('contacto');
 Route::view('/404', '404.404')->name('error.page');
-
-//Busqueda
-//Route::get()->name('buscar')

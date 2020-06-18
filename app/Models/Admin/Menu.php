@@ -15,6 +15,10 @@ class Menu extends Model
     protected $guarded = 'id';//Campos que laravel no va a dejar modificaar en este caso id
     //public $timestamps = false;//Permite usar 
 
+    public function roles(){
+        return $this->belongsTo(Rol::class, 'menu_rol');//Para la relacion de mucho a muchos, Muchos menus tienes muchos roles
+    }
+
     public function getHijos($padres, $line){
         $hijos = [];
         foreach($padres as $line1){
