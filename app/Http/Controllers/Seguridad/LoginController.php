@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller{
     use AuthenticatesUsers;
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     public function __construct()
     {
@@ -22,6 +22,17 @@ class LoginController extends Controller{
     public function index()
     {
         return view('auth.login');
+    }
+
+    protected function authenticated(Request $request, $user){
+        $roles = $user->roles()->where('estado', 1)->get();
+        if($roles->isNotEmpty()){
+            $user->setSession($roles->toArray());
+        }else{
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return redirect('auth/login')->withErrors(['error' => 'Este usuario no tiene un rol Activo']);
+        }
     }
 
     public function username(){

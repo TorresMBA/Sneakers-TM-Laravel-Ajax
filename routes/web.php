@@ -1,19 +1,18 @@
 <?php
 
 
-//Pagina Principal
- Route::get('/', function () {
-    return view('index');
-})->name('inicio');
 
-//Route::get('/', 'HomeController@index')->name('inicio');
+//Redirigire al inicio
+Route::get('/', 'HomeController@index')->name('inicio');
 
 //Ruta Login
 Route::get('auth/login', 'Seguridad\LoginController@index')->name('login');
 Route::post('auth/login', 'Seguridad\LoginController@login')->name('login.inicio');
+Route::get('auth/logout','Seguridad\LoginController@logout')->name('logout');
+Route::get('registro')->name('login.registrar');
 
 //Rutas para el acceso de Admin
-Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth'], function () { // Con un callback dentro de la ruta no sirve Para cachear la ruta
+Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => ['auth', 'superAdmin']], function () { // Con un callback dentro de la ruta no sirve Para cachear la ruta
     //Inicio de Logueo
     Route::get('', 'AdminController@index')->name('');
     //Rutas Permiso

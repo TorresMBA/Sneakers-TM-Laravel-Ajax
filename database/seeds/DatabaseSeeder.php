@@ -12,20 +12,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->truncateTablas([
+        $this->truncateTablas([ // Que tablas se van a truncar
             'rol',
-            'permiso'
+            'permiso',
+            'usuario_rol'
         ]);
 
         $this->call(TablaRolSeeder::class);
         $this->call(TablaPermisoSeeder::class);
+        $this->call(UsuarioAdminSeeder::class);//Se llama a los sedders ya creados para trabajarlo y truncarlos
     }
 
     protected function truncateTablas(array $tablas){
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+       /*  DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         foreach($tablas as $tabla){
             DB::table($tabla)->truncate();
         }
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;'); */
     }
 }
