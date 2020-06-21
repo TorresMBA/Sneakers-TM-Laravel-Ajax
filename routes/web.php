@@ -1,6 +1,6 @@
 <?php
 
-
+use Illuminate\Support\Facades\Route;
 
 //Redirigire al inicio
 Route::get('/', 'HomeController@index')->name('inicio');
@@ -9,12 +9,23 @@ Route::get('/', 'HomeController@index')->name('inicio');
 Route::get('auth/login', 'Seguridad\LoginController@index')->name('login');
 Route::post('auth/login', 'Seguridad\LoginController@login')->name('login.inicio');
 Route::get('auth/logout','Seguridad\LoginController@logout')->name('logout');
-Route::get('registro')->name('login.registrar');
+Route::get('registro', 'Seguridad\LoginRegisterController@index')->name('login.registrar');
+Route::post('registro', 'Seguridad\LoginRegisterController@store')->name('registrar');
 
 //Rutas para el acceso de Admin
 Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => ['auth', 'superAdmin']], function () { // Con un callback dentro de la ruta no sirve Para cachear la ruta
     //Inicio de Logueo
-    Route::get('', 'AdminController@index')->name('');
+    Route::get('', 'AdminController@index')->name('dashboard');
+    //Perfil Admin
+    Route::get('/perfil', 'UsuarioController@show')->name('perfil-admin');
+    //Usuarios Admin
+    Route::get('usuarios', 'UsuarioController@index')->name('lista.usuarios');
+    Route::get('usuario/crear', 'UsuarioController@create')->name('crear.usuario');
+    //Productos
+    Route::get('productos', 'ProductoController@index')->name('lista.productos');
+    Route::get('producto/crear', 'ProductoController@create')->name('crear.producto');
+    //Pedidos
+    Route::get('/pedidos', 'PedidosController@index')->name('lista.pedidos');
     //Rutas Permiso
     Route::get('permiso', 'PermisoController@index')->name('permiso.index');
     Route::get('permiso/crear', 'PermisoController@create')->name('permiso.crear');

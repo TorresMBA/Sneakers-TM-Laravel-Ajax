@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //View::share('theme', 'sneakers');
         view()->share('theme', 'sneakers');
+        view()->share('panel', 'dashboard');
     }
 }

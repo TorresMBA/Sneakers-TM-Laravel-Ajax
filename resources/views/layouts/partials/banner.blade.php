@@ -14,6 +14,16 @@
 							<li><a href="{{ route('error.page') }}">Equipo</a></li>
 							<li><a href="{{ route('calzado.lista') }}">Calzados a la Venta !!</a></li>
 							<li><a href="{{ route('contacto') }}">Contacto</a></li>
+							@if (session()->has('usuario_id') && session('rol_id') == 1)
+								<li><a href="{{ route('dashboard') }}">Panel de Administrador</a></li>
+							@endif
+							@if (session()->has('usuario_id'))
+								<li><a href="#">{{ session()->get('usuario_nom') }} {{ session()->get('usuario_ape') }}</a></li>
+								<li><a href="{{ route('logout') }}">Cerrar Sesion</a></li>
+							@else
+								<li><a href="{{ route('login.inicio') }}">Login</a></li>
+								<li><a href="{{ route('login.registrar') }}">Registrarse</a></li>
+							@endif
 						</ul>
 					</nav>
 				</div>

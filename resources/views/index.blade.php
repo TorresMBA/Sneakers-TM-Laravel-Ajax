@@ -22,6 +22,9 @@
 							<li><a href="{{ route('error.page') }}">Equipo</a></li>
 							<li><a href="{{ route('calzado.lista') }}">Calzados a la Venta !!</a></li>
 							<li><a href="{{ route('contacto') }}">Contacto</a></li>
+							@if (session()->has('usuario_id') && session('rol_id') == 1)
+								<li><a href="{{ route('dashboard') }}">Panel de Administrador</a></li>
+							@endif
 							@if (session()->has('usuario_id'))
 								<li><a href="#">{{ session()->get('usuario_nom') }} {{ session()->get('usuario_ape') }}</a></li>
 								<li><a href="{{ route('logout') }}">Cerrar Sesion</a></li>
@@ -51,13 +54,7 @@
 				<!-- //cart details -->
 
 				<!-- search -->
-				<div class="search_w3ls_agileinfo">
-					{{-- <div class="cd-main-header">
-						<!-- login -->
-						<a href="login.html" class="btn btn-success cd-header-buttons">
-							<span class="fa fa-sign-in mr-2"></span>Login</a>
-						<!-- //login -->
-					</div> --}}						
+				<div class="search_w3ls_agileinfo">				
 					<div class="cd-main-header">
 						<ul class="cd-header-buttons">
 							<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
@@ -93,9 +90,7 @@
 								<div class="banner-info-wthree">
 									<h3>Heels</h3>
 									<p>For All Walks of Life.</p>
-
 								</div>
-
 							</div>
 						</li>
 						<li>
@@ -103,7 +98,6 @@
 								<div class="banner-info-wthree">
 									<h3>Sneakers</h3>
 									<p>See how good they feel.</p>
-
 								</div>
 							</div>
 						</li>
